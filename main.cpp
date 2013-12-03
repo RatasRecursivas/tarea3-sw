@@ -11,7 +11,7 @@ int main()
     //char *asignatura = new char[256];
     //memset(asignatura, 0, sizeof(asignatura));
     string asignatura;
-    cout << "\tPrograma realizado por:" << endl  << "\t\tPatricio Perez Valverde" <<endl <<  "\t\tSebastian Rocha Reyes" << endl << "\t\tNatalia  Tarifenio Ortiz" << endl << endl;
+    cout << "\tPrograma realizado por:" << endl  << "\t\tPatricio Perez Valverde" <<endl <<  "\t\tSebastian Rocha Reyes" << endl << "\t\tNatalia  Tarifeño Ortiz" << endl << endl;
     
     cout << "Ingrese nombre de asignatura" << endl;
     getline(cin,asignatura);
@@ -24,14 +24,10 @@ int main()
     PGconn* con = conectarDB("146.83.181.4", 6432, "iswdb", "isw","isw"); //conexion
     PGresult* res = query(con, sql); // Hacer query
     long hits = cantResultados(res); // Cuantas rows devolvio
-    if(hits > 0)
-
+    if(hits > 1)
         cout << "El ranking para " << asignatura << " es " << filaToString(res, 0, 0) << endl;
-
     else
-
-    cout << "No se encontraron resultados" << endl;
-
-    cerrarConexion(con);
+        cout << "No se encontraron resultados para " << asignatura << endl;
+    cerrarConexion(con); // Cerramos la conexion, hay que tener respeto
     return 0;
 }

@@ -9,12 +9,14 @@ Dependencias (Ubuntu 12.04 LTS):
 
 Pasos para la compilacion:
 
+    rm -rf build dist
     mkdir build dist
     g++ -Wall -g3 -c -MMD -MP -MF build/db.o.d -o build/db.o db.cpp
     g++ -Wall -g3 -c -MMD -MP -MF build/main.o.d -o build/main.o main.cpp
     g++ -Wall -g3 -o dist/app build/db.o build/main.o -lpq
 
 Ejecutar desde dist:
+
     ./dist/app
 
 Enjoy!
